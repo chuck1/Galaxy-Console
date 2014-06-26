@@ -1,6 +1,6 @@
 
 
-#include <gal/std/terminal/python.hpp>
+#include <gal/console/python.hpp>
 
 PythonStdIoRedirect::ContainerType PythonStdIoRedirect::m_outputs;
 
