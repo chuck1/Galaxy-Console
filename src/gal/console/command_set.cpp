@@ -1,7 +1,7 @@
 
-#include <gal/std/terminal/terminal.hpp>
-#include <gal/std/terminal/command.hpp>
-#include <gal/std/terminal/command_set.hpp>
+#include <gal/console/base.hpp>
+#include <gal/console/command.hpp>
+#include <gal/console/command_set.hpp>
 
 
 void		gal::std::command_set::init() {

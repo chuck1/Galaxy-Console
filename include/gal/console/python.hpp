@@ -7,7 +7,7 @@
 #include <sstream>
 
 
-#include <gal/std/terminal/terminal.hpp>
+#include <gal/console/base.hpp>
 
 namespace bp = boost::python;
 

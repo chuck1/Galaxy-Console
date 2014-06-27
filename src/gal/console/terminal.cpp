@@ -1,6 +1,6 @@
 
-#include <gal/std/terminal/terminal.hpp>
-#include <gal/std/terminal/command_set.hpp>
+#include <gal/console/base.hpp>
+#include <gal/console/command_set.hpp>
 
 gal::std::stringstream::stringstream(sp::shared_ptr<gal::std::__terminal_data> t): t_(t) {
 	assert(t_);
