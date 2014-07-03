@@ -30,7 +30,7 @@ set(Boost_LIBRARY_DIRS $ENV{HOME}/usr/lib)
 
 SET(libs
 	${PROJECT_NAME}
-	${galaxy_LIBRARIES}
+	${Galaxy_LIBRARIES}
 	${Boost_LIBRARIES}
 	python2.7
 	)
