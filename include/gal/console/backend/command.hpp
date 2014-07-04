@@ -7,9 +7,9 @@ namespace bpo = boost::program_options;
 
 
 
-namespace gal { namespace std {
+namespace gal { namespace console {
 
-	class terminal;
+	class base;
 
 	class command {
 		public:

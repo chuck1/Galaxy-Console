@@ -1,7 +1,7 @@
 
 #include <gal/console/base.hpp>
-#include <gal/console/command.hpp>
-#include <gal/console/command_set.hpp>
+#include <gal/console/backend/command.hpp>
+#include <gal/console/backend/command_set.hpp>
 
 
 void		gal::std::command_set::init() {
@@ -9,7 +9,7 @@ void		gal::std::command_set::init() {
 	// default help command
 	auto help = sp::make_shared<gal::std::command>();
 
-	help->func_ = [&] (sp::shared_ptr<gal::std::terminal> term, bpo::variables_map vm) {
+	help->func_ = [&] (sp::shared_ptr<gal::console::base> term, bpo::variables_map vm) {
 
 		list_commands(term);
 
@@ -18,14 +18,14 @@ void		gal::std::command_set::init() {
 	map_["help"] = help;
 
 }
-void		gal::std::command_set::list_commands(sp::shared_ptr<gal::std::terminal> term) {
+void		gal::std::command_set::list_commands(sp::shared_ptr<gal::console::base> term) {
 
 	for(auto item : map_) {
 		term->operator<<(item.first);
 	}
 
 }
-void	gal::std::command_set::operator()(sp::shared_ptr<gal::std::terminal> term, ::std::string str) {
+void	gal::std::command_set::operator()(sp::shared_ptr<gal::console::base> term, ::std::string str) {
 
 	::std::istringstream iss(str);
 

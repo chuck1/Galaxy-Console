@@ -1,43 +1,17 @@
 
 #include <gal/console/base.hpp>
-#include <gal/console/command_set.hpp>
-
-gal::std::stringstream::stringstream(sp::shared_ptr<gal::std::__terminal_data> t): t_(t) {
-	assert(t_);
-}
-gal::std::stringstream::stringstream(gal::std::stringstream&& ss):
-	t_(::std::move(ss.t_))
-{}
-gal::std::stringstream::~stringstream() {
-	if(t_) {
-		t_->lines_.push_back(t_->ss_.str());
-		t_->ss_.str(::std::string());
-	}
-}
+#include <gal/console/backend/command_set.hpp>
 
 
 
-
-
-gal::std::terminal::terminal():
+gal::console::base::base():
 	lines_max_(20),
 	prompt_end_("$ ")
 {}
-void					gal::std::terminal::push(char c) {
+void					gal::console::base::push(char c) {
 	line_.push_back(c);
 }
-void					gal::std::terminal::eval(::std::string const & s) {
-
-	auto self = sp::dynamic_pointer_cast<gal::std::terminal>(shared_from_this());
-
-	if(cs_) {
-		(*cs_)(self, line_);
-	} else {
-		operator<<("No commands exist.");
-	}
-
-}
-void					gal::std::terminal::enter() {
+void					gal::console::base::enter() {
 
 	
 	operator<<(prompt_end_) << line_;

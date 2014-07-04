@@ -1,5 +1,5 @@
 
-#include <gal/console/command.hpp>
+#include <gal/console/backend/command.hpp>
 
 void			gal::std::command::operator()(terminal_type term, int ac, char const ** av) {
 
