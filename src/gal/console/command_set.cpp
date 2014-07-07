@@ -4,10 +4,10 @@
 #include <gal/console/backend/command_set.hpp>
 
 
-void		gal::std::command_set::init() {
+void			gal::console::command_set::init() {
 
 	// default help command
-	auto help = sp::make_shared<gal::std::command>();
+	auto help = sp::make_shared<gal::console::command>();
 
 	help->func_ = [&] (sp::shared_ptr<gal::console::base> term, bpo::variables_map vm) {
 
@@ -18,14 +18,14 @@ void		gal::std::command_set::init() {
 	map_["help"] = help;
 
 }
-void		gal::std::command_set::list_commands(sp::shared_ptr<gal::console::base> term) {
+void			gal::console::command_set::list_commands(sp::shared_ptr<gal::console::base> term) {
 
 	for(auto item : map_) {
 		term->operator<<(item.first);
 	}
 
 }
-void	gal::std::command_set::operator()(sp::shared_ptr<gal::console::base> term, ::std::string str) {
+void			gal::console::command_set::operator()(sp::shared_ptr<gal::console::base>& term, ::std::string const & str) {
 
 	::std::istringstream iss(str);
 

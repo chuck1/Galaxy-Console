@@ -70,8 +70,10 @@ class PythonStdIoRedirect {
 namespace gal { namespace std { namespace term {
 
 
-	class python: virtual public gal::std::terminal {
+	class python: virtual public gal::console::base {
 		public:
+			python();
+
 			virtual void		init();
 			virtual void		eval(::std::string const & s);
 

@@ -4,6 +4,10 @@
 
 PythonStdIoRedirect::ContainerType PythonStdIoRedirect::m_outputs;
 
+
+gal::std::term::python::python() {
+	prompt_end_ = ">>> ";
+}
 void			gal::std::term::python::init() {
 	// startup
 	Py_Initialize();
@@ -57,8 +61,10 @@ void			gal::std::term::python::eval(::std::string const & s) {
 	}
 
 	auto output = PythonStdIoRedirect::GetOutputContainer();
-	
-	lines_.insert(lines_.end(), output.begin(), output.end());
+
+	for(auto it = output.begin(); it != output.end(); ++it) {
+		write_line(*it);//.insert(lines_.end(), output.begin(), output.end());
+	}
 }
 
 

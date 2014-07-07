@@ -13,7 +13,7 @@ namespace gal { namespace console {
 
 	class command {
 		public:
-			typedef ::std::shared_ptr<gal::std::terminal>		terminal_type;
+			typedef ::std::shared_ptr<gal::console::base>			terminal_type;
 
 			void		operator()(terminal_type term, int ac, char const ** av);
 

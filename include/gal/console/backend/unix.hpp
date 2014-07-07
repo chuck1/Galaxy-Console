@@ -1,24 +1,23 @@
-#ifndef NEBULA_UTIL_TERMINAL_HPP
-#define NEBULA_UTIL_TERMINAL_HPP
+#ifndef NEBULA_UTIL_TERMINAL_UNIX_HPP
+#define NEBULA_UTIL_TERMINAL_UNIX_HPP
 
 #include <string>
 #include <deque>
 #include <sstream>
 
-#include <gal/std/shared.hpp>
-
+#include <gal/console/base.hpp>
 
 namespace gal { namespace console {
 	
 	class command_set;
 
 
-
 	/** @brief terminal */
 	class unix: virtual public gal::console::base {
 		public:
 			unix();
-			
+			virtual ~unix() {}	
+		
 			virtual void						eval(::std::string const & s);
 		
 
@@ -27,7 +26,7 @@ namespace gal { namespace console {
 			 *
 			 * @note WEAK
 			 */
-			sp::shared_ptr<gal::std::command_set>		cs_;
+			::std::shared_ptr<gal::console::command_set>		cs_;
 
 
 				
@@ -37,3 +36,6 @@ namespace gal { namespace console {
 }}
 
 #endif
+
+
+

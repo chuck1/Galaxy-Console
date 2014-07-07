@@ -15,24 +15,36 @@ namespace gal { namespace console {
 	class base: virtual public gal::console::__base {
 		public:
 			base();
-			
+			virtual ~base() {}
+	
 			/** @brief push formatted text into terminal history */
 			template<typename T> gal::console::stringstream		operator<<(T const & t) {
 				gal::console::stringstream ss(sp::dynamic_pointer_cast<gal::console::base>(shared_from_this()));
 				return ::std::move(ss << t);
 			}
+
 			/** @brief push character onto current line */
 			void							push(char c);
+			
+			virtual void						enter() = 0;
+
+
+
+
+
+			/** @brief evaluate
+			 * @note backend
+			 */
 			virtual void						eval(::std::string const & s) = 0;
-			void							enter();
 
-		private:
-			unsigned int					lines_max_;
 
-			::std::string					line_;
-			::std::string					prompt_end_;
+		protected:
+
 
 	};
 }}
 
 #endif
+
+
+

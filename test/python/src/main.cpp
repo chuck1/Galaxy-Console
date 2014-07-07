@@ -1,21 +1,23 @@
 
-#include <gal/console/python.hpp>
+#include <gal/console/backend/python.hpp>
+#include <gal/console/frontend/stdio.hpp>
+
+class console:
+	virtual public gal::std::term::python,
+	virtual public gal::console::frontend::stdio
+{};
 
 int main() {
-	
-	auto t = sp::make_shared<gal::std::term::python>();
-	
+
+	auto t = sp::make_shared<console>();
+
 	t->init();
-	
-	t->push('h');
-	
-	t->enter();
-	
-	
-	
-	for(auto l : t->lines_) {
-		std::cout << l << std::endl;
-	}
+
+	//t->push('h');
+
+	//t->enter();
+
+	t->loop();
 
 }
 

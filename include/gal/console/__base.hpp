@@ -12,8 +12,20 @@ namespace gal { namespace console {
 	
 	class __base: virtual public gal::std::shared {
 		public:
-			::std::deque< ::std::string >			lines_;
-			::std::stringstream				ss_;
+			/** @brief write line
+			 * @note frontend
+			 *
+			 * add line to terminal history
+			 */
+			virtual void						write_line(::std::string const & s) = 0;
+
+
+
+			::std::stringstream					ss_;
+
+			::std::string						line_;
+			::std::string						prompt_end_;
+
 	};
 	
 }}

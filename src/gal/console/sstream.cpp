@@ -1,16 +1,22 @@
 
 #include <gal/console/sstream.hpp>
 
-gal::std::stringstream::stringstream(sp::shared_ptr<gal::std::__terminal_data> t): t_(t) {
-	assert(t_);
+gal::console::stringstream::stringstream(sp::shared_ptr<gal::console::__base> b): b_(b) {
+	assert(b_);
 }
-gal::std::stringstream::stringstream(gal::std::stringstream&& ss):
-	t_(::std::move(ss.t_))
+gal::console::stringstream::stringstream(gal::console::stringstream&& ss):
+	b_(::std::move(ss.b_))
 {}
-gal::std::stringstream::~stringstream() {
-	if(t_) {
-		t_->lines_.push_back(t_->ss_.str());
-		t_->ss_.str(::std::string());
+gal::console::stringstream::~stringstream() {
+
+	
+	
+	if(b_) {
+
+		::std::cout << 'x';
+
+		b_->write_line(b_->ss_.str()); //b_->lines_.push_back(b_->ss_.str());
+		b_->ss_.str(::std::string());
 	}
 }
 

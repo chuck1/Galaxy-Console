@@ -1,7 +1,7 @@
 
 #include <gal/console/backend/command.hpp>
 
-void			gal::std::command::operator()(terminal_type term, int ac, char const ** av) {
+void			gal::console::command::operator()(terminal_type term, int ac, char const ** av) {
 
 	bpo::variables_map vm;
 

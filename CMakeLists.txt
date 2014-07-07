@@ -35,8 +35,9 @@ SET(libs
 	python2.7
 	)
 
-MESSAGE(STATUS "${Boost_INCLUDE_DIRS}")
-MESSAGE(STATUS "${Boost_LIBRARY_DIRS}")
+MESSAGE(STATUS "libs:                   ${libs}")
+MESSAGE(STATUS "galaxy_std_LIBRARY_DIR: ${galaxy_std_LIBRARY_DIR}")
+
 
 cmh_library()
 
