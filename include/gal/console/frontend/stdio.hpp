@@ -15,6 +15,8 @@ namespace gal { namespace console { namespace frontend {
 
 			void				loop();
 
+
+
 	};
 
 }}}

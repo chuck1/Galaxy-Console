@@ -15,6 +15,8 @@ namespace gal { namespace console { namespace frontend {
 			virtual void					write_line(::std::string const & s);
 			virtual void					enter();
 
+		public:
+
 			unsigned int					lines_max_;
 
 			::std::deque< ::std::string >			lines_;

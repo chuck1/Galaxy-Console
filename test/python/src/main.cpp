@@ -1,15 +1,12 @@
 
 #include <gal/console/backend/python.hpp>
 #include <gal/console/frontend/stdio.hpp>
+#include <gal/console/temp.hpp>
 
-class console:
-	virtual public gal::std::term::python,
-	virtual public gal::console::frontend::stdio
-{};
 
 int main() {
 
-	auto t = sp::make_shared<console>();
+	auto t = sp::make_shared< gal::console::temp<gal::console::backend::python, gal::console::frontend::stdio> >();
 
 	t->init();
 

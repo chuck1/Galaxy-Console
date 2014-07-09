@@ -5,10 +5,10 @@
 PythonStdIoRedirect::ContainerType PythonStdIoRedirect::m_outputs;
 
 
-gal::std::term::python::python() {
+gal::console::backend::python::python() {
 	prompt_end_ = ">>> ";
 }
-void			gal::std::term::python::init() {
+void			gal::console::backend::python::init() {
 	// startup
 	Py_Initialize();
 
@@ -27,7 +27,7 @@ void			gal::std::term::python::init() {
 	bp::import("sys").attr("stdout") = python_stdio_redirector;
 
 }
-void			gal::std::term::python::eval(::std::string const & s) {
+void			gal::console::backend::python::eval(::std::string const & s) {
 
 	bp::object o;
 	try

@@ -17,10 +17,9 @@ namespace gal { namespace console {
 		public:
 			unix();
 			virtual ~unix() {}	
-		
+			
 			virtual void						eval(::std::string const & s);
-		
-
+			
 
 			/** @brief %command_set
 			 *

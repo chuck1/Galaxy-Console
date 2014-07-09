@@ -67,7 +67,7 @@ class PythonStdIoRedirect {
 
 
 
-namespace gal { namespace std { namespace term {
+namespace gal { namespace console { namespace backend {
 
 
 	class python: virtual public gal::console::base {
@@ -76,6 +76,8 @@ namespace gal { namespace std { namespace term {
 
 			virtual void		init();
 			virtual void		eval(::std::string const & s);
+
+		public:
 
 			bp::object		main_module_;
 			bp::object		main_namespace_;

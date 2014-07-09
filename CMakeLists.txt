@@ -23,6 +23,8 @@ FIND_PACKAGE(Galaxy COMPONENTS
 	std
 	REQUIRED)
 
+SET(include_dirs ${include_dirs} "/usr/include/python2.7")
+
 INCLUDE_DIRECTORIES("/usr/include/python2.7")
 
 
