@@ -7,7 +7,6 @@
 
 #include <gal/std/shared.hpp>
 
-
 namespace gal { namespace console {
 	
 	class __base: virtual public gal::std::shared {
