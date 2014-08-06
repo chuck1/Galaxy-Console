@@ -16,5 +16,6 @@ int main() {
 
 	t->loop();
 
+	return 0;
 }
 
