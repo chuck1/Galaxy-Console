@@ -3,9 +3,7 @@
 
 #include <boost/python.hpp>
 
-
 #include <sstream>
-
 
 #include <gal/console/base.hpp>
 
