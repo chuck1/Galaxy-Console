@@ -1,6 +1,5 @@
 
 #include <gal/console/base.hpp>
-#include <gal/console/backend/command_set.hpp>
 
 
 

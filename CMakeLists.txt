@@ -15,7 +15,6 @@ add_definitions( -DBOOST_ALL_DYN_LINK )
 FIND_PACKAGE(Boost 1.55 COMPONENTS
 	system
 	thread
-	program_options
 	python
 	REQUIRED)
 
