@@ -10,8 +10,6 @@
 
 
 namespace gal { namespace console {
-	
-	
 	class base: virtual public gal::console::__base {
 		public:
 			base();
