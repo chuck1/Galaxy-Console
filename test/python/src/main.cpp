@@ -3,10 +3,11 @@
 #include <gal/console/frontend/stdio.hpp>
 #include <gal/console/temp.hpp>
 
+using namespace std;
 
 int main() {
 
-	auto t = sp::make_shared< gal::console::temp<gal::console::backend::python, gal::console::frontend::stdio> >();
+	auto t = make_shared< gal::console::temp<gal::console::backend::python, gal::console::frontend::stdio> >();
 
 	t->init();
 
