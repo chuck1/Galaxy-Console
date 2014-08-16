@@ -12,7 +12,7 @@ namespace gal { namespace console {
 	
 	/** @brief temporary stringstream */
 	struct stringstream {
-		stringstream(sp::shared_ptr<gal::console::__base> b);
+		stringstream(std::shared_ptr<gal::console::__base> b);
 		stringstream(stringstream&& ss);
 		~stringstream();
 		template<typename T> stringstream		operator<<(T const & t) {
@@ -20,7 +20,7 @@ namespace gal { namespace console {
 			b_->ss_ << t;
 			return ::std::move(*this);
 		}
-		sp::shared_ptr<gal::console::__base>		b_;
+		std::shared_ptr<gal::console::__base>		b_;
 	};
 	
 	

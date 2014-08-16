@@ -5,11 +5,11 @@
 #include <deque>
 #include <sstream>
 
-#include <gal/std/shared.hpp>
+#include <gal/itf/shared.hpp>
 
 namespace gal { namespace console {
 	
-	class __base: virtual public gal::std::shared {
+	class __base: virtual public gal::itf::shared {
 		public:
 			/** @brief write line
 			 * @note frontend

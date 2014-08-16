@@ -1,7 +1,7 @@
 
 #include <gal/console/sstream.hpp>
 
-gal::console::stringstream::stringstream(sp::shared_ptr<gal::console::__base> b): b_(b) {
+gal::console::stringstream::stringstream(std::shared_ptr<gal::console::__base> b): b_(b) {
 	assert(b_);
 }
 gal::console::stringstream::stringstream(gal::console::stringstream&& ss):

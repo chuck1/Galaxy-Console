@@ -17,7 +17,7 @@ namespace gal { namespace console {
 	
 			/** @brief push formatted text into terminal history */
 			template<typename T> gal::console::stringstream		operator<<(T const & t) {
-				gal::console::stringstream ss(sp::dynamic_pointer_cast<gal::console::base>(shared_from_this()));
+				gal::console::stringstream ss(std::dynamic_pointer_cast<gal::console::base>(shared_from_this()));
 				return ::std::move(ss << t);
 			}
 
