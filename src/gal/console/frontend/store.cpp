@@ -1,7 +1,7 @@
 #include <gal/console/frontend/store.hpp>
 
 gal::console::frontend::store::store():
-	lines_max_(20)
+	lines_max_(1000)
 {}
 
 void			gal::console::frontend::store::write_line(::std::string const & s) {
