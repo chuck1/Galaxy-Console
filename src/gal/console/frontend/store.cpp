@@ -18,9 +18,9 @@ void			gal::console::frontend::store::write_line(::std::string const & s) {
 void					gal::console::frontend::store::enter() {
 
 	
-	operator<<(prompt_end_) << line_;
+	operator<<(prompt_end_) << line_.container;
 	
-	eval(line_);
+	eval(line_.container);
 	
 	line_.clear();
 	

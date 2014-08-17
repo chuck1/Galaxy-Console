@@ -10,7 +10,7 @@ void			gal::console::frontend::stdio::enter() {
 	
 	//operator<<(prompt_end_) << line_;
 	
-	eval(line_);
+	eval(line_.container);
 	
 	line_.clear();
 	

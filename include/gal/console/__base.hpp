@@ -7,6 +7,46 @@
 
 #include <gal/itf/shared.hpp>
 
+template<typename T> struct scroller {
+	scroller(): pos(0) {}
+
+	T&		operator=(T const & t) {
+		container = t;
+		return container;
+	}
+
+	template<typename U> void	insert(U const & u) {
+		container.insert(pos, u);
+		pos++;
+	}
+	void				backspace() {
+		if(!container.empty() && pos > 0) {
+			pos--;
+			container.erase(pos, 1);
+		}
+	}
+	void				del() {
+		if(!container.empty() && pos < container.size()) {
+			container.erase(pos, 1);
+		}
+	}
+	void				clear() {
+		container.clear();
+		pos = 0;
+	}
+	void		up() {
+		if(pos < container.size()) pos++;
+	}
+	void		down() {
+		if(pos > 0) pos--;
+	}
+	
+	
+	typename T::size_type	pos;
+	
+	T		container;
+};
+
 namespace gal { namespace console {
 	
 	class __base: virtual public gal::itf::shared {
@@ -20,10 +60,10 @@ namespace gal { namespace console {
 
 
 
-			::std::stringstream					ss_;
+			std::stringstream					ss_;
 
-			::std::string						line_;
-			::std::string						prompt_end_;
+			scroller<std::string>					line_;
+			std::string						prompt_end_;
 
 	};
 	
