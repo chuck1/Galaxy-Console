@@ -18,9 +18,11 @@ FIND_PACKAGE(Boost 1.55 COMPONENTS
 	REQUIRED)
 
 SET(libs
-	${galaxy_LIBRARIES}
+	galaxy_std_0_so_db
 	${Boost_LIBRARIES}
 	python2.7)
+
+message(STATUS "boost ${Boost_LIBRARIES}")
 
 INCLUDE_DIRECTORIES("/usr/include/python2.7")
 
