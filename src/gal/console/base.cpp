@@ -1,7 +1,9 @@
 
 #include <gal/console/base.hpp>
 
-
+void	gal::console::__base::release()
+{
+}
 
 gal::console::base::base()
 {}
