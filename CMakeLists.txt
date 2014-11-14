@@ -8,9 +8,9 @@ PROJECT(galaxy_console)
 INCLUDE(../../../../config.cmake)
 INCLUDE(cmh_build_config)
 
-FIND_PACKAGE(galaxy 0 COMPONENTS
-	std
-	REQUIRED)
+SET(SHARED True)
+
+FIND_PACKAGE(galaxy 0 COMPONENTS std REQUIRED)
 
 INCLUDE(cmh_boost)
 FIND_PACKAGE(Boost 1.55 COMPONENTS
@@ -18,7 +18,8 @@ FIND_PACKAGE(Boost 1.55 COMPONENTS
 	REQUIRED)
 
 SET(libs
-	galaxy_std_0_so_db
+	#galaxy_std_0
+	${galaxy_LIBRARIES}
 	${Boost_LIBRARIES}
 	python2.7)
 
