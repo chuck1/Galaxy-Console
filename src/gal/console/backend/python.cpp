@@ -27,11 +27,11 @@ void			gal::console::backend::python::init() {
 	bp::import("sys").attr("stdout") = python_stdio_redirector;
 
 }
-void			gal::console::backend::python::eval(::std::string const & s) {
 
+void			gal::console::backend::python::eval(::std::string const & s)
+{
 	bp::object o;
-	try
-	{
+	try {
 		o = bp::eval(s.c_str(), main_namespace_);
 
 		if(!o.is_none()) {
@@ -39,32 +39,25 @@ void			gal::console::backend::python::eval(::std::string const & s) {
 			main_namespace_["temp_obj"] = o;
 			bp::exec("print temp_obj", main_namespace_);
 		}
-
-	}
-	catch(bp::error_already_set const &)
-	{
+	} catch(bp::error_already_set const &) {
 
 		PyErr_Clear();
 
 		//PyErr_Print();
 		//std::cout << "exec\n";
 
-		try
-		{
+		try {
 			o = bp::exec(s.c_str(), main_namespace_, bp::object());
-		}
-		catch(bp::error_already_set const &)
-		{
+		} catch(bp::error_already_set const &) {
 			PyErr_Print();
 		}
-
 	}
 
 	auto output = PythonStdIoRedirect::GetOutputContainer();
 
-	for(auto it = output.begin(); it != output.end(); ++it) {
+	for(auto it = output.begin(); it != output.end(); ++it)
 		write_line(*it);//.insert(lines_.end(), output.begin(), output.end());
-	}
+	
 }
 
 
