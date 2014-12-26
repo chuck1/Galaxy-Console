@@ -25,26 +25,30 @@ template<typename T> struct scroller {
 			container.erase(pos, 1);
 		}
 	}
+	void				home()
+	{
+		pos = 0;
+	}
+	void				end()
+	{
+		pos = container.size();
+	}
 	void				del() {
-		if(!container.empty() && pos < container.size()) {
+		if(!container.empty() && pos < container.size())
 			container.erase(pos, 1);
-		}
 	}
 	void				clear() {
 		container.clear();
 		pos = 0;
 	}
-	void		up() {
+	void				up() {
 		if(pos < container.size()) pos++;
 	}
-	void		down() {
+	void				down() {
 		if(pos > 0) pos--;
 	}
-	
-	
-	typename T::size_type	pos;
-	
-	T		container;
+	typename T::size_type		pos;
+	T				container;
 };
 
 namespace gal { namespace console {
