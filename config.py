@@ -37,6 +37,8 @@ l = Library("galaxy_console")
 
 l.inc_dirs.append("/usr/include/python2.7")
 
+l.require("galaxy_std")
+
 l.make()
 
 
