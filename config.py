@@ -33,7 +33,7 @@ INCLUDE(cmh_library)
 ADD_SUBDIRECTORY(test)
 """
 
-l = Library("galaxy_console")
+l = Static("galaxy_console")
 
 l.inc_dirs.append("/usr/include/python2.7")
 
