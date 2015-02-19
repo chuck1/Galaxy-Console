@@ -11,18 +11,12 @@ namespace gal { namespace console { namespace frontend {
 	class store: virtual public gal::console::base {
 		public:
 			store();
-
-			virtual void					write_line(::std::string const & s);
-			virtual void					enter();
-
-		public:
-
-			unsigned int					lines_max_;
-
-			::std::deque< ::std::string >			lines_;
-
+			virtual void				write_line(::std::string const & s);
+			virtual void				enter();
+			void					print();
+			unsigned int				lines_max_;
+			std::deque< std::string >		lines_;
 	};
-
 }}}
 
 #endif

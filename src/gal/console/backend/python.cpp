@@ -12,8 +12,7 @@ void			gal::console::backend::python::init() {
 	// startup
 	Py_Initialize();
 
-
-	main_module_ = bp::import("__main__");
+	main_module_ = boost::python::import("__main__");
 	main_namespace_ = main_module_.attr("__dict__");
 
 
