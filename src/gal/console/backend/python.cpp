@@ -1,8 +1,7 @@
 
 
 #include <gal/console/backend/python.hpp>
-
-PythonStdIoRedirect::ContainerType PythonStdIoRedirect::m_outputs;
+#include <gal/console/backend/PythonStdIoRedirect.hpp>
 
 
 gal::console::backend::python::python() {
