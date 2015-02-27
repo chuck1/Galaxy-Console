@@ -33,7 +33,6 @@ void			gal::console::backend::python::eval(::std::string const & s)
 		o = bp::eval(s.c_str(), main_namespace_);
 
 		if(!o.is_none()) {
-			//std::cout << "not none\n";
 			main_namespace_["temp_obj"] = o;
 			bp::exec("print temp_obj", main_namespace_);
 		}
@@ -42,7 +41,6 @@ void			gal::console::backend::python::eval(::std::string const & s)
 		PyErr_Clear();
 		
 		//PyErr_Print();
-		//std::cout << "exec\n";
 		
 		try {
 			o = bp::exec(s.c_str(), main_namespace_, bp::object());
