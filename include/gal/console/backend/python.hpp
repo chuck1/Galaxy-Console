@@ -17,19 +17,13 @@ namespace gal { namespace console { namespace backend {
 	class python: virtual public gal::console::base {
 		public:
 			python();
-
-			virtual void		init();
-			virtual void		eval(::std::string const & s);
-
+			virtual void	init();
+			virtual void	eval(::std::string const & s);
+			void		exec_file(std::string filename);
 		public:
-
-			bp::object		main_module_;
-			bp::object		main_namespace_;
-
+			bp::object	main_module_;
+			bp::object	main_namespace_;
 	};
-
-
-
 }}}
 
 #endif

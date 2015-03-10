@@ -3,8 +3,10 @@
 #include <gal/console/backend/python.hpp>
 #include <gal/console/backend/PythonStdIoRedirect.hpp>
 
+typedef gal::console::backend::python THIS;
 
-gal::console::backend::python::python() {
+THIS::python()
+{
 	prompt_end_ = ">>> ";
 }
 void			gal::console::backend::python::init() {
@@ -25,8 +27,26 @@ void			gal::console::backend::python::init() {
 	bp::import("sys").attr("stdout") = python_stdio_redirector;
 
 }
+void			THIS::exec_file(std::string filename)
+{
+	try {
+		bp::exec_file(
+				filename.c_str(),
+				main_namespace_,
+				main_namespace_);
+	} catch(bp::error_already_set const &) {
 
-void			gal::console::backend::python::eval(::std::string const & s)
+		PyErr_Clear();
+
+		PyErr_Print();
+	}
+
+	auto output = PythonStdIoRedirect::GetOutputContainer();
+
+	for(auto it = output.begin(); it != output.end(); ++it)
+		write_line(*it);//.insert(lines_.end(), output.begin(), output.end());
+}
+void			THIS::eval(std::string const & s)
 {
 	bp::object o;
 	try {
@@ -37,11 +57,11 @@ void			gal::console::backend::python::eval(::std::string const & s)
 			bp::exec("print temp_obj", main_namespace_);
 		}
 	} catch(bp::error_already_set const &) {
-		
+
 		PyErr_Clear();
-		
+
 		//PyErr_Print();
-		
+
 		try {
 			o = bp::exec(s.c_str(), main_namespace_, bp::object());
 		} catch(bp::error_already_set const &) {
@@ -53,7 +73,7 @@ void			gal::console::backend::python::eval(::std::string const & s)
 
 	for(auto it = output.begin(); it != output.end(); ++it)
 		write_line(*it);//.insert(lines_.end(), output.begin(), output.end());
-	
+
 }
 
 
