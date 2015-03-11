@@ -7,19 +7,28 @@
 
 #include <gal/itf/shared.hpp>
 
-template<typename T> struct scroller {
-	scroller(): pos(0) {}
-
-	T&		operator=(T const & t) {
+/**
+ * move around the entry line
+ */
+template<typename T>
+struct scroller
+{
+	scroller(): pos(0)
+	{
+	}
+	T&		operator=(T const & t)
+	{
 		container = t;
 		return container;
 	}
-
-	template<typename U> void	insert(U const & u) {
+	template<typename U>
+	void				insert(U const & u)
+	{
 		container.insert(pos, u);
 		pos++;
 	}
-	void				backspace() {
+	void				backspace()
+	{
 		if(!container.empty() && pos > 0) {
 			pos--;
 			container.erase(pos, 1);
@@ -33,44 +42,46 @@ template<typename T> struct scroller {
 	{
 		pos = container.size();
 	}
-	void				del() {
+	void				del()
+	{
 		if(!container.empty() && pos < container.size())
 			container.erase(pos, 1);
 	}
-	void				clear() {
+	void				clear()
+	{
 		container.clear();
 		pos = 0;
 	}
-	void				up() {
+	void				up()
+	{
 		if(pos < container.size()) pos++;
 	}
-	void				down() {
+	void				down()
+	{
 		if(pos > 0) pos--;
 	}
+	/** cursor position */
 	typename T::size_type		pos;
 	T				container;
 };
 
 namespace gal { namespace console {
-	
-	class __base: virtual public gal::itf::shared {
-		public:
-			/** @brief write line
-			 * @note frontend
-			 *
-			 * add line to terminal history
-			 */
-			virtual void						write_line(::std::string const & s) = 0;
-
-			virtual void						release();
-
-			std::stringstream					ss_;
-
-			scroller<std::string>					line_;
-			std::string						prompt_end_;
-
+	/** data for stringstream to interact with */
+	class __base:
+		virtual public gal::itf::shared
+	{
+	public:
+		/** @brief write line
+		 * @note frontend
+		 *
+		 * add line to terminal history
+		 */
+		virtual void						write_line(::std::string const & s) = 0;
+		virtual void						release();
+		std::stringstream					ss_;
+		scroller<std::string>					line_;
+		std::string						prompt_end_;
 	};
-	
 }}
 
 #endif

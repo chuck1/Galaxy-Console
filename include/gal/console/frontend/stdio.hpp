@@ -1,12 +1,12 @@
 #ifndef GAL_CONSOLE_FRONTEND_STDIO_HPP
 #define GAL_CONSOLE_FRONTEND_STDIO_HPP
 
-#include <gal/console/base.hpp>
+#include <gal/console/frontend/base.hpp>
 
 namespace gal { namespace console { namespace frontend {
 
 	class stdio:
-		virtual public gal::console::base
+		virtual public gal::console::frontend::base
 	{
 		public:
 

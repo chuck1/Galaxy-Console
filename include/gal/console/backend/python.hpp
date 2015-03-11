@@ -5,24 +5,22 @@
 
 #include <sstream>
 
-#include <gal/console/base.hpp>
+#include <gal/console/backend/base.hpp>
 
 namespace bp = boost::python;
 
-
-
 namespace gal { namespace console { namespace backend {
-
-
-	class python: virtual public gal::console::base {
-		public:
-			python();
-			virtual void	init();
-			virtual void	eval(::std::string const & s);
-			void		exec_file(std::string filename);
-		public:
-			bp::object	main_module_;
-			bp::object	main_namespace_;
+	class python:
+		virtual public gal::console::backend::base
+	{
+	public:
+		virtual void	init(parent_t * const & parent);
+		virtual void	release();
+		virtual void	eval(std::string const & s);
+		void		exec_file(std::string filename);
+	public:
+		bp::object	main_module_;
+		bp::object	main_namespace_;
 	};
 }}}
 

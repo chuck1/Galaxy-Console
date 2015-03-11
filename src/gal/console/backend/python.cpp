@@ -1,15 +1,17 @@
 
 
+#include <gal/console/base.hpp>
 #include <gal/console/backend/python.hpp>
 #include <gal/console/backend/PythonStdIoRedirect.hpp>
 
 typedef gal::console::backend::python THIS;
 
-THIS::python()
+void			THIS::init(parent_t * const & parent)
 {
-	prompt_end_ = ">>> ";
-}
-void			gal::console::backend::python::init() {
+	setParent(parent);
+
+	parent->prompt_end_ = ">>> ";
+
 	// startup
 	Py_Initialize();
 
@@ -27,8 +29,13 @@ void			gal::console::backend::python::init() {
 	bp::import("sys").attr("stdout") = python_stdio_redirector;
 
 }
+void			THIS::release()
+{
+}
 void			THIS::exec_file(std::string filename)
 {
+	auto parent = getParent();
+
 	try {
 		bp::exec_file(
 				filename.c_str(),
@@ -44,10 +51,12 @@ void			THIS::exec_file(std::string filename)
 	auto output = PythonStdIoRedirect::GetOutputContainer();
 
 	for(auto it = output.begin(); it != output.end(); ++it)
-		write_line(*it);//.insert(lines_.end(), output.begin(), output.end());
+		parent->write_line(*it);//.insert(lines_.end(), output.begin(), output.end());
 }
 void			THIS::eval(std::string const & s)
 {
+	auto parent = getParent();
+
 	bp::object o;
 	try {
 		o = bp::eval(s.c_str(), main_namespace_);
@@ -72,7 +81,7 @@ void			THIS::eval(std::string const & s)
 	auto output = PythonStdIoRedirect::GetOutputContainer();
 
 	for(auto it = output.begin(); it != output.end(); ++it)
-		write_line(*it);//.insert(lines_.end(), output.begin(), output.end());
+		parent->write_line(*it);//.insert(lines_.end(), output.begin(), output.end());
 
 }
 

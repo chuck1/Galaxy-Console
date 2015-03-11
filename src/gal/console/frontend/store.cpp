@@ -1,11 +1,17 @@
+#include <gal/console/base.hpp>
 #include <gal/console/frontend/store.hpp>
 
-gal::console::frontend::store::store():
+typedef gal::console::frontend::store THIS;
+
+THIS::store():
 	lines_max_(1000)
 {
 }
-void			gal::console::frontend::store::write_line(
-		std::string const & s)
+void			THIS::init(parent_t * const & p)
+{
+	setParent(p);
+}
+void			THIS::write_line(std::string const & s)
 {	
 	lines_.push_back(s);
 
@@ -15,16 +21,18 @@ void			gal::console::frontend::store::write_line(
 }
 void			gal::console::frontend::store::enter()
 {	
-	operator<<(prompt_end_) << line_.container;
+	auto p = getParent();
+
+	p->operator<<(p->prompt_end_) << p->line_.container;
 	
-	eval(line_.container);
+	p->eval(p->line_.container);
 	
-	line_.clear();
+	p->line_.clear();
 	
 	return;
 }
-void			gal::console::frontend::store::print()
+THIS::D const &		THIS::lines_ref()
 {
-	for(std::string s : lines_)
-		printf("%s\n", s.c_str());
+	return lines_;
 }
+
