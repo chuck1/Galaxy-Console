@@ -2,10 +2,12 @@
 
 #include <gal/console/backend/PythonStdIoRedirect.hpp>
 
-PythonStdIoRedirect::ContainerType PythonStdIoRedirect::m_outputs;
+typedef gal::console::backend::PythonStdIoRedirect THIS;
 
-void PythonStdIoRedirect::Write( std::string const& str ) {
+THIS::ContainerType THIS::m_outputs;
 
+void				THIS::Write(std::string const& str)
+{
 	printf("%s: \"%s\"\n", __PRETTY_FUNCTION__, str.c_str());
 
 	m_outputs << str;
@@ -25,7 +27,7 @@ void PythonStdIoRedirect::Write( std::string const& str ) {
 
 
 }
-std::string PythonStdIoRedirect::GetOutput()
+std::string			THIS::GetOutput()
 {
 	std::string ret;
 
@@ -35,7 +37,8 @@ std::string PythonStdIoRedirect::GetOutput()
 	m_outputs.clear();
 	return ret;
 }
-std::vector< std::string >		PythonStdIoRedirect::GetOutputContainer() {
+std::vector<std::string>	THIS::GetOutputContainer()
+{
 
 	std::vector< std::string > ret;
 
@@ -48,3 +51,4 @@ std::vector< std::string >		PythonStdIoRedirect::GetOutputContainer() {
 	m_outputs.clear();
 	return ret;
 }
+

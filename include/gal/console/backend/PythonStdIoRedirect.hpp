@@ -5,16 +5,18 @@
 #include <vector>
 #include <sstream>
 
-class PythonStdIoRedirect {
-	public:
-		typedef std::stringstream ContainerType;
-		void					Write( std::string const& str );
-		static std::string			GetOutput();
-		static std::vector< std::string >	GetOutputContainer();
-	private:
-		static ContainerType		m_outputs;
-};
-
+namespace gal { namespace console { namespace backend {
+	class PythonStdIoRedirect
+	{
+		public:
+			typedef std::stringstream ContainerType;
+			void					Write( std::string const& str );
+			static std::string			GetOutput();
+			static std::vector< std::string >	GetOutputContainer();
+		private:
+			static ContainerType		m_outputs;
+	};
+}}}
 
 #endif
 
