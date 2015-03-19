@@ -76,6 +76,8 @@ void			THIS::eval(std::string const & s)
 		} catch(bp::error_already_set const &) {
 			PyErr_Print();
 		}
+		
+		PyErr_Print();
 	}
 
 	auto output = PythonStdIoRedirect::GetOutputContainer();

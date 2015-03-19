@@ -22,6 +22,7 @@ namespace gal { namespace console { namespace backend {
 		template<typename... T>
 		void		call(bp::object o, T... t)
 		{
+			printv_func(INFO);
 			try {
 				o(t...);
 			} catch(bp::error_already_set const &) {
