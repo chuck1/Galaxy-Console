@@ -5,7 +5,7 @@
 #include <deque>
 #include <sstream>
 
-#include <gal/itf/shared.hpp>
+#include <gal/managed_object.hpp>
 
 namespace gal { namespace console {
 	/**

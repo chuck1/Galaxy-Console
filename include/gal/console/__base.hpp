@@ -5,14 +5,14 @@
 #include <deque>
 #include <sstream>
 
-#include <gal/itf/shared.hpp>
+#include <gal/managed_object.hpp>
 
 #include <gal/console/scroller.hpp>
 
 namespace gal { namespace console {
 	/** data for stringstream to interact with */
 	class __base:
-		virtual public gal::itf::shared
+		virtual public gal::managed_object
 	{
 	public:
 		/** @brief write line
