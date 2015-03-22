@@ -8,18 +8,21 @@
 // gal/console/frontend/store.hpp
 // gal/console/backend/python.hpp
 
+#include <gal/stl/child.hpp>
+
 #include <gal/console/decl.hpp>
 #include <gal/console/__base.hpp>
 #include <gal/console/sstream.hpp>
 
 namespace gal { namespace console {
 	class base:
-		virtual public gal::console::__base
+		virtual public gal::console::__base,
+		virtual public gal::stl::child<gal::console::util::Parent>
 	{
 	public:
 		typedef std::vector<std::string> V;
 		typedef std::deque<std::string> D;
-
+		
 		/** @brief push formatted text into terminal history */
 		template<typename T>
 		gal::console::stringstream		operator<<(T const & t)
@@ -29,7 +32,7 @@ namespace gal { namespace console {
 		}
 		/** @brief push character onto current line */
 		void			push(char c);
-		void			init();
+		void			init(parent_t * const & p);
 		void			print();
 		// interface
 		D const &		lines_ref();

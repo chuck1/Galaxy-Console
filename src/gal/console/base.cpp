@@ -1,4 +1,4 @@
-
+#include <gal/console/util/Parent.hpp>
 #include <gal/console/frontend/base.hpp>
 #include <gal/console/backend/base.hpp>
 #include <gal/console/base.hpp>
@@ -9,8 +9,10 @@ void	gal::console::__base::release()
 
 typedef gal::console::base THIS;
 
-void				THIS::init()
+void				THIS::init(parent_t * const & p)
 {
+	setParent(p);
+
 	if(_M_frontend) _M_frontend->init(this);
 	if(_M_backend) _M_backend->init(this);
 }

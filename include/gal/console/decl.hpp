@@ -8,6 +8,10 @@ namespace gal { namespace console {
 	namespace backend {
 		class base;
 	}
+	namespace util
+	{
+		class Parent;
+	}
 	class base;
 }}
 
