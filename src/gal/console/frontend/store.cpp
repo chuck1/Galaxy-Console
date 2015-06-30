@@ -9,6 +9,8 @@ THIS::store():
 }
 void			THIS::init(parent_t * const & p)
 {
+	gal::verbosity_base::init(p->get_vr());
+	
 	setParent(p);
 }
 void			THIS::write_line(std::string const & s)

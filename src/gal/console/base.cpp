@@ -6,11 +6,11 @@
 void	gal::console::__base::release()
 {
 }
-
 typedef gal::console::base THIS;
-
 void				THIS::init(parent_t * const & p)
 {
+	gal::verbosity_base::init(p->get_vr());
+
 	setParent(p);
 
 	if(_M_frontend) _M_frontend->init(this);
