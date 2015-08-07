@@ -3,13 +3,13 @@
 
 #include <sstream>
 
-#include <gal/stl/child.hpp>
+#include <gal/object/Child.hpp>
 
 #include <gal/console/decl.hpp>
 
 namespace gal { namespace console { namespace backend {
 	class base:
-		virtual public gal::stl::child<gal::console::base>
+		virtual public gal::object::Child<gal::console::base>
 	{
 	public:
 		virtual void	init(parent_t * const & p) = 0;

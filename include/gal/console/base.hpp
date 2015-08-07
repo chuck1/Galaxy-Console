@@ -8,7 +8,7 @@
 // gal/console/frontend/store.hpp
 // gal/console/backend/python.hpp
 
-#include <gal/stl/child.hpp>
+#include <gal/object/Child.hpp>
 
 #include <gal/console/decl.hpp>
 #include <gal/console/__base.hpp>
@@ -17,7 +17,7 @@
 namespace gal { namespace console {
 	class base:
 		virtual public gal::console::__base,
-		virtual public gal::stl::child<gal::console::util::Parent>
+		virtual public gal::object::Child<gal::console::util::Parent>
 	{
 	public:
 		typedef std::vector<std::string> V;

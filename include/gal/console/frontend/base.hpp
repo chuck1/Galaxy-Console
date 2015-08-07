@@ -3,13 +3,13 @@
 
 #include <sstream>
 
-#include <gal/stl/child.hpp>
+#include <gal/object/Child.hpp>
 
 #include <gal/console/decl.hpp>
 
 namespace gal { namespace console { namespace frontend {
 	class base:
-		virtual public gal::stl::child<gal::console::base>
+		virtual public gal::object::Child<gal::console::base>
 	{
 	public:
 		typedef std::deque<std::string> D;
