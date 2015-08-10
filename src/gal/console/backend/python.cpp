@@ -8,7 +8,7 @@ typedef gal::console::backend::python THIS;
 
 void			THIS::init(parent_t * const & parent)
 {
-	gal::verbosity_base::init(parent->get_vr());
+	gal::verb::VerbosityBase::init(parent->get_vr());
 
 	setParent(parent);
 

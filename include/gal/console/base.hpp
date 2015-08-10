@@ -27,12 +27,14 @@ namespace gal { namespace console {
 		template<typename T>
 		gal::console::stringstream		operator<<(T const & t)
 		{
-			gal::console::stringstream ss(std::dynamic_pointer_cast<gal::console::base>(shared_from_this()));
-			return ::std::move(ss << t);
+			auto s = std::dynamic_pointer_cast<gal::console::base>(shared_from_this());
+			gal::console::stringstream ss(s);
+			return std::move(ss << t);
 		}
 		/** @brief push character onto current line */
 		void			push(char c);
 		void			init(parent_t * const & p);
+		virtual void		release();
 		void			print();
 		// interface
 		D const &		lines_ref();
@@ -40,7 +42,7 @@ namespace gal { namespace console {
 		/** @brief evaluate
 		 * @note backend
 		 */
-		void			eval(::std::string const & s);
+		void			eval(std::string const & s);
 		virtual void		write_line(std::string const & s);
 
 		std::shared_ptr<gal::console::frontend::base>	_M_frontend;
