@@ -6,6 +6,7 @@
 void	gal::console::__base::release()
 {
 }
+
 typedef gal::console::base THIS;
 void				THIS::init(parent_t * const & p)
 {
@@ -15,6 +16,9 @@ void				THIS::init(parent_t * const & p)
 
 	if(_M_frontend) _M_frontend->init(this);
 	if(_M_backend) _M_backend->init(this);
+}
+void				THIS::release()
+{
 }
 void				THIS::push(char c)
 {
