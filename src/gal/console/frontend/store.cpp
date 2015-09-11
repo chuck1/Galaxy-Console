@@ -9,7 +9,7 @@ THIS::store():
 }
 void			THIS::init(parent_t * const & p)
 {
-	gal::verb::VerbosityBase::init(p->get_vr());
+	init_verb(p->get_vr());
 	
 	setParent(p);
 }

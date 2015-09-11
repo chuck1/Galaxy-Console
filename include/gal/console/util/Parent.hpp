@@ -5,7 +5,7 @@
 
 namespace gal { namespace console { namespace util {
 	class Parent:
-		virtual public gal::managed_object
+		virtual public gal::mng::managed_object
 	{
 	public:
 		virtual ~Parent() {}

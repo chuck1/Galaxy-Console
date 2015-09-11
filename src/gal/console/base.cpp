@@ -10,7 +10,9 @@ void	gal::console::__base::release()
 typedef gal::console::base THIS;
 void				THIS::init(parent_t * const & p)
 {
-	gal::verb::VerbosityBase::init(p->get_vr());
+	assert(p);
+
+	init_verb(p->get_vr());
 
 	setParent(p);
 

@@ -12,7 +12,7 @@
 namespace gal { namespace console {
 	/** data for stringstream to interact with */
 	class __base:
-		virtual public gal::managed_object
+		virtual public gal::mng::managed_object
 	{
 	public:
 		/** @brief write line
